@@ -5,6 +5,7 @@
 Requirements: Python 3.10 or higher;
 pre-execute commands:
 python -m pip install --upgrade pip;
+pip install click==8.0.4
 
 
 Usage: FindLogger.py [OPTIONS] PATH
