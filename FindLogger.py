@@ -70,7 +70,13 @@ def logger_analyze(path: Path, text: str, date: str, unwanted: str, full: Any) -
     required=True,
 )
 @click.option("--text", "-t", "--Text", "--TEXT", help="To find the text in the Logs")
-@click.option("--date", "-d", "--Date", "--DATE", help="To find the date in the Logs")
+@click.option(
+    "--date",
+    "-d",
+    "--Date",
+    "--DATE",
+    help='To find the date in the Logs.The Example:"2022-02-03 00:01:13.623", or less "../2022-02-03 00:01:13.623", or more "2022-02-03 00:01:13.623\..", or range "2022-02-03 00:01:13.623/2022-02-03 00:01:13.623/2022-02-03 00:06:13.838"',
+)
 @click.option(
     "--unwanted",
     "-n",
@@ -85,7 +91,7 @@ def logger_analyze(path: Path, text: str, date: str, unwanted: str, full: Any) -
     "--FULL",
     default=None,
     show_default=True,
-    help="Return full log entry unstead of default Qty",
+    help="Return full log entry unstead of default Qty. Example -full FULL, --Full full and etc.",
 )
 def main(path, text, date, unwanted, full):
     """
