@@ -3,10 +3,10 @@ from typing import Any
 
 import click
 
-from functions.functions import (search_date, search_date_text,
-                                 search_range_date, search_text,
-                                 unwanted_search)
-from functions.parsing import date_convert, full_echo, path_open
+from functions_log.functions import (search_date, search_date_text,
+                                     search_range_date, search_text,
+                                     unwanted_search)
+from functions_log.parsing import date_convert, full_echo, path_open
 
 
 def logger_analyze(path: Path, text: str, date: str, unwanted: str, full: Any) -> Any:
@@ -21,12 +21,12 @@ def logger_analyze(path: Path, text: str, date: str, unwanted: str, full: Any) -
         return search_text(text, lines, full)
     if not text and not unwanted and date:
         count = 0
-        if date[-3:] == "/..":
+        if date.endswith("/.."):
             date = date_convert(date[:-3])
             for key, value in lines.items():
                 if key >= date:
                     count += 1
-                    search_range_date(key, value, lines, full)
+                    search_range_date(key, value, full)
             if count == 0:
                 return click.secho(
                     "This date range was not detected", fg="red", bold=True
@@ -36,7 +36,7 @@ def logger_analyze(path: Path, text: str, date: str, unwanted: str, full: Any) -
             for key, value in lines.items():
                 if key <= date:
                     count += 1
-                    search_range_date(key, value, lines, full)
+                    search_range_date(key, value, full)
             if count == 0:
                 return click.secho(
                     "This date range was not detected", fg="red", bold=True
@@ -47,7 +47,7 @@ def logger_analyze(path: Path, text: str, date: str, unwanted: str, full: Any) -
             for key, value in lines.items():
                 if date_start <= key <= date_end:
                     count += 1
-                    search_range_date(key, value, lines, full)
+                    search_range_date(key, value, full)
             if count == 0:
                 return click.secho(
                     "This date range was not detected", fg="red", bold=True

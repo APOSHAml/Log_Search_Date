@@ -1,7 +1,7 @@
 import pytest
 
-from ..FindLogger import (date_convert, path_open, search_date,
-                                      search_date_text, search_text)
+from ..functions_log.functions import search_date, search_date_text, search_text
+from ..functions_log.parsing import date_convert, path_open
 from .data_test.data_testing import *
 
 

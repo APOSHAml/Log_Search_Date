@@ -4,7 +4,7 @@ from typing import Any
 
 import click
 
-from functions.parsing import date_convert, full_echo
+from .parsing import date_convert, full_echo
 
 
 def search_text(text: str, lines: dict, full: Any):
