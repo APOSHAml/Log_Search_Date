@@ -1,6 +1,6 @@
 # Log_Search_Date
 
-[![Build Status](https://github.com/APOSHAml/Log_Search_Date/actions/workflows/pytest-package.yml/badge.svg)](https://github.com/APOSHAml/Log_Search_Date/actions/workflows/pytest-package.yml)
+[![Build Status](https://github.com/APOSHAml/Log_Search_Date/actions/workflows/pytest-package.yml/badge.svg?branch=master)](https://github.com/APOSHAml/Log_Search_Date/actions/workflows/pytest-package.yml)
 
 * ___Requirements: Python 3.10 or higher___
 * pre-execute commands:
